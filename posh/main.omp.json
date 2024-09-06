@@ -1,0 +1,113 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#5dade2",
+          "style": "diamond",
+          "template": "<3 ",
+          "type": "session"
+        },
+        {
+          "foreground": "#f4d03f",
+          "properties": {
+            "style": "folder"
+          },
+          "style": "plain",
+          "template": "<#ffffff>in</> {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#ff94df",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}",
+            "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
+            "{{ if gt .Behind 0 }}#B388FF{{ end }}"
+          ],
+          "properties": {
+            "branch_icon": " <#ff94df><b>\ue0a0 </b></>",
+            "fetch_stash_count": true,
+            "fetch_upstream_icon": true,
+            "fetch_status": false,
+            "github_icon": ""
+          },
+          "style": "powerline",
+          "template": "<#ffffff>on</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "type": "node",
+          "style": "diamond",
+          "foreground": "#00ffa2",
+          "template": "- \ue718 {{ .Full }} "
+        },
+        {
+          "type": "php",
+          "style": "plain",
+          "foreground": "#00ffa2",
+          "template": "\ue73d {{ .Full }} "
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#00ffa2",
+          "template": "\uE235 {{ .Full }}"
+        },
+        {
+          "type": "julia",
+          "style": "plain",
+          "foreground": "#00ffa2",
+          "template": "\uE624 {{ .Full }}"
+        },
+        {
+          "type": "ruby",
+          "style": "plain",
+          "foreground": "#00ffa2",
+          "template": "\uE791 {{ .Full}}"
+        },
+        {
+          "type": "go",
+          "style": "plain",
+          "foreground": "#00ffa2",
+          "template": "\uFCD1 {{ .Full}}"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "newline": false,
+      "segments": [
+        {
+          "type": "command",
+          "style": "plain",
+          "foreground": "#ccff00",
+          "properties": {
+            "command": "git log --pretty=format:%cr -1 || date +%H:%M:%S",
+            "shell": "bash"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "overflow": "branch_icon",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#fdfefe",
+          "style": "diamond",
+          "template": "?",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
