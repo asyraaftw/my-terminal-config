@@ -89,8 +89,17 @@
         }
       ],
       "type": "prompt"
+    },
+    {
+      "type": "strava",
+      "properties": {
+        "access_token": "400e7b102c531471e89933b7db2d7c05b0be797a",
+        "refresh_token": "73cd773252c5c5222fa239ccf01363c8e03bb795",
+        "expires_in": 21600
+      }
     }
   ],
+
   "transient_prompt": {
     "background": "transparent",
     "foreground": "#ffffff",
